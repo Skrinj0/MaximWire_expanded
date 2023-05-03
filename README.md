@@ -1,12 +1,12 @@
 
 # MaximWire
 
-This is very simple library to connect DS18B20 temperature sensors and Arduino NANO 33 BLE controllers.
+This is very simple library to connect OneWire temperature sensors and Arduino NANO 33 BLE controllers. This version adds support for the MAX30207 sensor and possibly others in the future.
 
 Getting started
 ---------------
 
-By default, if you use only one DS18B20 device, you don't need external pull-up resistor.
+By default, if you use only one OneWire device, you don't need external pull-up resistor.
 Just connect directly:
 
 * +3.3V -> RED
@@ -30,7 +30,7 @@ And connect BUS and +3.3V lines with pull-up resistor.
 Parasite power
 --------------
 
-DS18B20 are able to share bus wire for powering itself, so only two wires required. And you will need external pullup resistor too.
+DS18B20 and MAX30207 are able to share bus wire for powering itself, so only two wires required. And you will need external pullup resistor too.
 
 * BUS -> YELLOW
 * GND -> RED + BLACK
