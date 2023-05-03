@@ -279,3 +279,4 @@ protected:
 }
 
 #include "DS18B20.h"
+#include "MAX30207.h"
