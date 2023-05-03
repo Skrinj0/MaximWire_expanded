@@ -44,15 +44,12 @@ public:
         Bits10 = 1,
         Bits11 = 2,
         Bits12 = 3,
-        Bits13 = 4,
-        Bits14 = 5,
-        Bits15 = 6,
-        Bits16 = 7,
+        Bits16 = 4,
     };
 
     struct ConfigurationRegister { 
         uint8_t Reserver:5;
-        uint8_t Resolution:2;
+        uint8_t Resolution:4;
     };
 
     static_assert(sizeof(ConfigurationRegister) == 1);
@@ -90,6 +87,9 @@ int16_t MAX30207::GetTemperature<int16_t>(Bus& bus) {
             }
             if (data.StructuredData.CRC8 == Bus::CRC8(data.RawData, 8)) {
                 switch (data.StructuredData.Configuration.Resolution) {
+		    case EResolution::Bits11:
+                        data.StructuredData.Temperature &= 0xFFFF;
+                        break;
                     case EResolution::Bits11:
                         data.StructuredData.Temperature &= 0xFFFE;
                         break;
