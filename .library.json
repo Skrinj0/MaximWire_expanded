@@ -1,14 +1,14 @@
 {
-    "name": "MaximWire",
-    "keywords": "MaximWire DS18B20 OneWire 1-Wire",
-    "description": "MaximWire",
+    "name": "MaximWireExp",
+    "keywords": "MaximWireExp OneWire library",
+    "description": "MaximWireExp",
     "authors":
     {
-        "name": "xxx",
-        "url": "http://www.xenohome.com"
+        "name": "Skrinj0",
+        "url": "https://github.com/Skrinj0/MaximWire_expanded"
     },
     "version": "1.0",
-    "downloadUrl": "http://www.xenohome.com/maximwire.zip",
+    "downloadUrl": "https://github.com/Skrinj0/MaximWire_expanded",
     "export": {
         "include": null
     },
