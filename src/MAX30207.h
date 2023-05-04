@@ -1,6 +1,6 @@
 #pragma once
 
-namespace MaximWire {
+namespace MaximWireExpanded {
 
 class MAX30207 : public Device {
 public:
