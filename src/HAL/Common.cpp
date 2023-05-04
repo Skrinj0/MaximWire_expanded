@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-namespace MaximWire {
+namespace MaximWireExpanded {
 
 #include "Common.h"
 
