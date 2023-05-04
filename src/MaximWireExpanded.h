@@ -2,7 +2,7 @@
 
 #include <Arduino.h>
 
-namespace MaximWire {
+namespace MaximWireExpanded {
 
 // HAL platform-specific implementations
 #include "HAL/NRF52840.h"
