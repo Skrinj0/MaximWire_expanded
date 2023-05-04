@@ -48,7 +48,7 @@ public:
 
     struct ConfigurationRegister { 
         uint8_t Reserver:5;
-        uint8_t Resolution:2;
+        uint8_t Resolution:3;
     };
 
     static_assert(sizeof(ConfigurationRegister) == 1);
@@ -86,6 +86,9 @@ int16_t DS18B20::GetTemperature<int16_t>(Bus& bus) {
             }
             if (data.StructuredData.CRC8 == Bus::CRC8(data.RawData, 8)) {
                 switch (data.StructuredData.Configuration.Resolution) {
+		    case EResolution::Bits12:
+                        data.StructuredData.Temperature &= 0xFFFF;
+                        break;
                     case EResolution::Bits11:
                         data.StructuredData.Temperature &= 0xFFFE;
                         break;
