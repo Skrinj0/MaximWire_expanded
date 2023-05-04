@@ -1,9 +1,9 @@
-#include <MaximWire.h>
+#include <MaximWireExpanded.h>
 
 #define PIN_BUS 9
 
-MaximWire::Bus bus(PIN_BUS);
-MaximWire::DS18B20 device("28FF6BC322170323");
+MaximWireExpanded::Bus bus(PIN_BUS);
+MaximWireExpanded::DS18B20 device("28FF6BC322170323");
 
 void setup() {
     Serial.begin(9600);
