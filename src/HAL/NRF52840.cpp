@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <nrf_gpio.h>
 
-namespace MaximWire {
+namespace MaximWireExpanded {
 
 #include "NRF52840.h"
 
