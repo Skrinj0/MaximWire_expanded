@@ -40,16 +40,12 @@ public:
     };
 
     enum EResolution : uint8_t {
-        Bits9 = 0,
-        Bits10 = 1,
-        Bits11 = 2,
-        Bits12 = 3,
-        Bits16 = 4,
-    };
+        Bits16 = 1
+	    };
 
     struct ConfigurationRegister { 
         uint8_t Reserver:5;
-        uint8_t Resolution:4;
+        uint8_t Resolution:1;
     };
 
     static_assert(sizeof(ConfigurationRegister) == 1);
@@ -87,17 +83,8 @@ int16_t MAX30207::GetTemperature<int16_t>(Bus& bus) {
             }
             if (data.StructuredData.CRC8 == Bus::CRC8(data.RawData, 8)) {
                 switch (data.StructuredData.Configuration.Resolution) {
-		    case EResolution::Bits11:
+		    case EResolution::Bits16:
                         data.StructuredData.Temperature &= 0xFFFF;
-                        break;
-                    case EResolution::Bits11:
-                        data.StructuredData.Temperature &= 0xFFFE;
-                        break;
-                    case EResolution::Bits10:
-                        data.StructuredData.Temperature &= 0xFFFC;
-                        break;
-                    case EResolution::Bits9:
-                        data.StructuredData.Temperature &= 0xFFF8;
                         break;
                 }
                 break;
