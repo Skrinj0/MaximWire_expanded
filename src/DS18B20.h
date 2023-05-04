@@ -1,6 +1,6 @@
 #pragma once
 
-namespace MaximWire {
+namespace MaximWireExpanded {
 
 class DS18B20 : public Device {
 public:
