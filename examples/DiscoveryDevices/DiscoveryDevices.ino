@@ -2,21 +2,21 @@
 
 #define MAXIMWIRE_EXTERNAL_PULLUP
 
-#include <MaximWire.h>
+#include <MaximWireExpanded.h>
 
 #define PIN_BUS 9
 
-MaximWire::Bus bus(PIN_BUS);
-MaximWire::DS18B20 device;
+MaximWireExpanded::Bus bus(PIN_BUS);
+MaximWireExpanded::DS18B20 device;
 
 void setup() {
     Serial.begin(9600);
 }
 
 void loop() {
-    MaximWire::Discovery discovery = bus.Discover();
+    MaximWireExpanded::Discovery discovery = bus.Discover();
     do {
-        MaximWire::Address address;
+        MaximWireExpanded::Address address;
         if (discovery.FindNextDevice(address)) {
             Serial.print("FOUND: ");
             Serial.print(address.ToString());
@@ -25,9 +25,9 @@ void loop() {
             } else {
                 Serial.print(" (INVALID)");
             }
-            if (address.GetModelCode() == MaximWire::DS18B20::MODEL_CODE) {
+            if (address.GetModelCode() == MaximWireExpanded::DS18B20::MODEL_CODE) {
                 Serial.print(" (DS18B20)");
-                MaximWire::DS18B20 device(address);
+                MaximWireExpanded::DS18B20 device(address);
                 if (device.IsParasitePowered(bus)) {
                     Serial.print(" (PARASITE POWER)");
                 }
